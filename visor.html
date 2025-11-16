@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<title>Visor</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #ffffff;
+    overflow: hidden;
+  }
+  #pdf {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+</style>
+</head>
+<body>
+
+<iframe
+  id="pdf"
+  src=""
+  frameborder="0"
+  allow="fullscreen"
+  sandbox="allow-same-origin allow-scripts">
+</iframe>
+
+<script>
+  // Obtener el parámetro ?pdf=URL
+  const params = new URLSearchParams(window.location.search);
+  const pdfUrl = params.get("pdf");
+
+  // Cargar el PDF directamente sin interfaz
+  if (pdfUrl) {
+    document.getElementById("pdf").src = pdfUrl;
+  }
+</script>
+
+</body>
+</html>
